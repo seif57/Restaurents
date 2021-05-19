@@ -13,146 +13,83 @@ namespace Restaurents
 {
     public partial class Form1 : Form
     {
-        SqlCommand cmd; 
+
+        List<Region> RegionsList;
         public Form1()
         {
             InitializeComponent();
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (var con = DataBaseConnection.SqlConnection)
-            {
-
-                cmd = new SqlCommand()
-                {
-                    CommandText = "GetRestaurent",
-                    Connection = con,
-                    CommandType = CommandType.StoredProcedure
-
-                };
-
-                //SqlParameter param1 = new SqlParameter
-                //{
-                //    ParameterName = "@Name",
-                //    SqlDbType = SqlDbType.VarChar,
-                //    Value = txtSearchRegion.Text,
-                //    Direction = ParameterDirection.Input
-
-                //};
-                //cmd.Parameters.Add(param1);
-                con.Open();
-               // DataTable dataTable = new DataTable();
-                //using (var adapter = new SqlDataAdapter("GetIDWithRestaurent", con))
-                //{
-                  //  adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    
-                    //adapter.SelectCommand.Parameters.Add("Name", SqlDbType.VarChar).Value = txtSearchRegion.Text;
-
-                    //adapter.Fill(dataTable);
-                    
-
-
-                //};
-
-                
-                
-            }
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lsRegions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void DisplayRestaurents( int id)
+        private void DisplayRestaurents(int id)
 
 
         {
             using (var con = DataBaseConnection.SqlConnection)
             {
-                
-               
-                
-                // con.Open();
+                                           
                 DataTable dataTable = new DataTable();
 
                 using (var adapter = new SqlDataAdapter("GetResturantByRegionId", con))
                 {
-                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    
-
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;                    
 
                     adapter.SelectCommand.Parameters.Add("@RegionId", SqlDbType.Int).Value = id;
 
                     adapter.Fill(dataTable);
-
-
-
-                    //};
-
-
-
-
-
-
-
                 }
-               
-                
-                
+                                           
                 lsRestaurents.DataSource = dataTable;
             };
         }
 
-        private void lsRegion_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-           
-           
+            RegionsList = new List<Region>();
+            DisplayRegions();
+
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void DisplayRegions()
         {
             using (var con = DataBaseConnection.SqlConnection)
             {
-              
+
                 DataTable dataTable = new DataTable();
                 using (var adapter = new SqlDataAdapter("GetAllRegions", con))
                 {
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-
                     adapter.Fill(dataTable);
                 };
-                lsRegion.DataSource = dataTable;
-            };
 
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    Region region = new Region();
+                    region.Id = int.Parse(row[0].ToString());
+                    region.Name = row[1].ToString();
+                    RegionsList.Add(region);
+                }
+                lsRegion.DataSource = RegionsList;
+            };
         }
 
         public void lsRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedId = (int)((DataRowView)lsRegion.SelectedItem).Row.ItemArray[0];
+            var selectedRegion = (Region)lsRegion.SelectedItem;
 
-            DisplayRestaurents(selectedId);
-
-            
-
+            DisplayRestaurents(selectedRegion.Id);
         }
 
         private void lsRestaurents_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            PopUPForm popUP = new PopUPForm();
+            PopUPForm popUP = new PopUPForm(this);
+
             popUP.ShowDialog();
+        }
+
+        public void UpdateResturants(string newResturantName)
+        {
+            MessageBox.Show(newResturantName + " Inserted Successfully");
         }
     }
 }

@@ -13,8 +13,15 @@ namespace Restaurents
 {
     public partial class PopUPForm : Form
     {
+        Form1 _form1;
         public PopUPForm()
         {
+            InitializeComponent();
+        }
+
+        public PopUPForm(Form1 form1)
+        {
+            _form1 = form1;
             InitializeComponent();
         }
 
@@ -56,14 +63,12 @@ namespace Restaurents
         {
             using (var con = DataBaseConnection.SqlConnection)
             {
-
-                DataTable dataTable = new DataTable();
-                using (var adapter = new SqlDataAdapter("AddRestaurent", con))
-                {
-                    AddRestaurent();
-
-                };
                 
+                    AddRestaurent();
+                _form1.UpdateResturants(textBox1.Text);
+                this.Close();
+                this.Dispose();
+
             };
 
         }

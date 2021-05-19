@@ -31,8 +31,6 @@ namespace Restaurents
         {
             this.lsRegion = new System.Windows.Forms.ListBox();
             this.lsRestaurents = new System.Windows.Forms.ListBox();
-            this.txtSearchRegion = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lsRegion
@@ -44,7 +42,6 @@ namespace Restaurents
             this.lsRegion.Size = new System.Drawing.Size(215, 186);
             this.lsRegion.TabIndex = 0;
             this.lsRegion.ValueMember = "Id";
-            this.lsRegion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lsRegion_MouseDoubleClick);
             this.lsRegion.SelectedIndexChanged += new System.EventHandler(this.lsRegion_SelectedIndexChanged);
             // 
             // lsRestaurents
@@ -58,40 +55,18 @@ namespace Restaurents
             this.lsRestaurents.ValueMember = "Id";
             this.lsRestaurents.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsRestaurents_MouseDoubleClick);
             // 
-            // txtSearchRegion
-            // 
-            this.txtSearchRegion.Location = new System.Drawing.Point(281, 55);
-            this.txtSearchRegion.Name = "txtSearchRegion";
-            this.txtSearchRegion.Size = new System.Drawing.Size(100, 20);
-            this.txtSearchRegion.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(291, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Pick Region:";
-            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(807, 397);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtSearchRegion);
             this.Controls.Add(this.lsRestaurents);
             this.Controls.Add(this.lsRegion);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtSearchRegion;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lsRestaurents;
         private System.Windows.Forms.ListBox lsRegion;
        
