@@ -25,29 +25,50 @@ namespace Restaurents
 
 
         {
+            listView.Clear();
             using (var con = DataBaseConnection.SqlConnection)
             {
-                                           
-                DataTable dataTable = new DataTable();
 
-                using (var adapter = new SqlDataAdapter("GetResturantByRegionId", con))
+                DataTable dataTable = new DataTable();
+                listView.View = View.Details;
+
+                using (var adapter = new SqlDataAdapter("GetResturantByRegionId2", con))
                 {
-                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;                    
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                     adapter.SelectCommand.Parameters.Add("@RegionId", SqlDbType.Int).Value = id;
 
                     adapter.Fill(dataTable);
                 }
-                                           
-                lsRestaurents.DataSource = dataTable;
+
+
+
+
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+
+                    DataRow dr = dataTable.Rows[i];
+
+                    ListViewItem listItem = new ListViewItem(dr["Name"].ToString());
+                    listItem.SubItems.Add(dr["RegionId"].ToString());
+                    listItem.SubItems.Add(dr["Address"].ToString());
+                    listItem.SubItems.Add(dr["Hotline"].ToString());
+                    listView.Items.Add(listItem);
+
+                }
+                listView.Columns.Add("Name");
+                listView.Columns.Add("RegionId");
+                listView.Columns.Add("Address");
+                listView.Columns.Add("Hotline");
             };
+            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             RegionsList = new List<Region>();
             DisplayRegions();
-
         }
 
         private void DisplayRegions()
@@ -78,18 +99,20 @@ namespace Restaurents
             var selectedRegion = (Region)lsRegion.SelectedItem;
 
             DisplayRestaurents(selectedRegion.Id);
+            
+
         }
 
-        private void lsRestaurents_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            PopUPForm popUP = new PopUPForm(this);
-
-            popUP.ShowDialog();
-        }
 
         public void UpdateResturants(string newResturantName)
         {
             MessageBox.Show(newResturantName + " Inserted Successfully");
+        }
+
+        private void button_AddRestaurent(object sender, EventArgs e)
+        {
+            PopUPForm popUP = new PopUPForm();
+            popUP.ShowDialog();
         }
     }
 }

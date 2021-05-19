@@ -30,35 +30,47 @@ namespace Restaurents
         private void InitializeComponent()
         {
             this.lsRegion = new System.Windows.Forms.ListBox();
-            this.lsRestaurents = new System.Windows.Forms.ListBox();
+            this.listView = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lsRegion
             // 
             this.lsRegion.DisplayMember = "Name";
             this.lsRegion.FormattingEnabled = true;
-            this.lsRegion.Location = new System.Drawing.Point(12, 44);
+            this.lsRegion.Location = new System.Drawing.Point(12, 18);
             this.lsRegion.Name = "lsRegion";
-            this.lsRegion.Size = new System.Drawing.Size(215, 186);
+            this.lsRegion.Size = new System.Drawing.Size(161, 368);
             this.lsRegion.TabIndex = 0;
             this.lsRegion.ValueMember = "Id";
             this.lsRegion.SelectedIndexChanged += new System.EventHandler(this.lsRegion_SelectedIndexChanged);
             // 
-            // lsRestaurents
+            // listView
             // 
-            this.lsRestaurents.DisplayMember = "Name";
-            this.lsRestaurents.FormattingEnabled = true;
-            this.lsRestaurents.Location = new System.Drawing.Point(467, 44);
-            this.lsRestaurents.Name = "lsRestaurents";
-            this.lsRestaurents.Size = new System.Drawing.Size(247, 186);
-            this.lsRestaurents.TabIndex = 1;
-            this.lsRestaurents.ValueMember = "Id";
-            this.lsRestaurents.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsRestaurents_MouseDoubleClick);
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(179, 56);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(504, 329);
+            this.listView.TabIndex = 1;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button1.Location = new System.Drawing.Point(205, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(287, 32);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Click Me To Add A Restaurent";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button_AddRestaurent);
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(807, 397);
-            this.Controls.Add(this.lsRestaurents);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.lsRegion);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -67,11 +79,9 @@ namespace Restaurents
         }
 
         #endregion
-        private System.Windows.Forms.ListBox lsRestaurents;
         private System.Windows.Forms.ListBox lsRegion;
-       
-        
-     
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.Button button1;
     }
 }
 
