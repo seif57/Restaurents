@@ -48,9 +48,11 @@ namespace Restaurents
 
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    Region region = new Region();
-                    region.Id = int.Parse(row[0].ToString());
-                    region.Name = row[1].ToString();
+                    Region region = new Region
+                    {
+                        Id = int.Parse(row[0].ToString()),
+                        Name = row[1].ToString()
+                    };
                     RegionsList.Add(region);
                 }
                 ShowAvailableRegions.DataSource = RegionsList;
