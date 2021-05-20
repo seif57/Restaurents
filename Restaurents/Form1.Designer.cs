@@ -50,7 +50,7 @@ namespace Restaurents
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(179, 56);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(504, 329);
+            this.listView.Size = new System.Drawing.Size(616, 329);
             this.listView.TabIndex = 1;
             this.listView.UseCompatibleStateImageBehavior = false;
             // 
