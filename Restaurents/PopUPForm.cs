@@ -20,10 +20,9 @@ namespace Restaurents
             BindBox();
         }
 
-        public PopUPForm(Form1 form1)
+        public PopUPForm(Form1 form1) : this()
         {
             _form1 = form1;
-            InitializeComponent();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -96,7 +95,7 @@ namespace Restaurents
             };
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void InsertButton_Click(object sender, EventArgs e)
         {
             using (var con = DataBaseConnection.SqlConnection)
             {

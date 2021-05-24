@@ -25,12 +25,14 @@ namespace Restaurents
 
 
         {
-            listView.Clear();
+            List<Resturant> ResturantsList;
+            ResturantsList = new List<Resturant>();
+
             using (var con = DataBaseConnection.SqlConnection)
             {
 
                 DataTable dataTable = new DataTable();
-                listView.View = View.Details;
+
 
                 using (var adapter = new SqlDataAdapter("GetResturantByRegionId2", con))
                 {
@@ -42,26 +44,49 @@ namespace Restaurents
                 }
 
 
-
-
-                for (int i = 0; i < dataTable.Rows.Count; i++)
+                foreach (DataRow row in dataTable.Rows)
                 {
+                    Resturant restaurent = new Resturant();
+                    restaurent.Id = int.Parse(row[0].ToString());
+                    restaurent.Name = row[1].ToString();
+                    restaurent.RegionId = int.Parse(row[2].ToString());
+                    restaurent.Address = row[3].ToString();
+                    restaurent.Hotline = row[4].ToString();
 
-                    DataRow dr = dataTable.Rows[i];
-
-                    ListViewItem listItem = new ListViewItem(dr["Name"].ToString());
-                    listItem.SubItems.Add(dr["RegionId"].ToString());
-                    listItem.SubItems.Add(dr["Address"].ToString());
-                    listItem.SubItems.Add(dr["Hotline"].ToString());
-                    listView.Items.Add(listItem);
+                    ResturantsList.Add(restaurent);
 
                 }
-                listView.Columns.Add("Name");
-                listView.Columns.Add("RegionId");
-                listView.Columns.Add("Address");
-                listView.Columns.Add("Hotline");
+
+
+                dataGridView1.AutoGenerateColumns = false;
+                dataGridView1.DataSource = ResturantsList;
+
+
+
+
+
+
+
             };
-            
+
+        }
+        public void DeleteRestaurent(int id)
+        {
+            using (var con = DataBaseConnection.SqlConnection)
+            {
+
+
+                using (var adapter = new SqlDataAdapter("DeleteRestaurent", con))
+                {
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                    adapter.SelectCommand.Parameters.Add("@ID", SqlDbType.Int).Value = id;
+                    con.Open();
+                    adapter.SelectCommand.ExecuteNonQuery();
+                    con.Close();
+
+                }
+            }
 
         }
 
@@ -93,6 +118,12 @@ namespace Restaurents
                 lsRegion.DataSource = RegionsList;
             };
         }
+        private void ModifyRestaurent(int id)
+        {
+            ModifyForm modifyForm = new ModifyForm(id, this);
+            modifyForm.ShowDialog();
+
+        }
 
         public void lsRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -102,16 +133,53 @@ namespace Restaurents
             
 
         }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string RestaurentID = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+               e.RowIndex >= 0)
+
+            {
+                if (dataGridView1.Columns[e.ColumnIndex].Name == "Modify")
+                {
+                    ModifyRestaurent(int.Parse(RestaurentID));
+
+                }
+
+
+                else if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete")
+                {
+                    var resturantName = senderGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    DialogResult dialogResult = MessageBox.Show("Confirm", "Are you sure u want to delete" + resturantName, MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+
+                        DeleteRestaurent(int.Parse(RestaurentID));
+
+
+                    }
+                }
+
+                
+            }
+
+            
+        }
 
 
         public void UpdateResturants(string newResturantName)
         {
             MessageBox.Show(newResturantName + " Inserted Successfully");
         }
+        public void ModifyResturants(string newResturantName)
+        {
+            MessageBox.Show(newResturantName + " Is Modified successfully");
+        }
 
         private void button_AddRestaurent(object sender, EventArgs e)
         {
-            PopUPForm popUP = new PopUPForm();
+            PopUPForm popUP = new PopUPForm(this);
             popUP.ShowDialog();
         }
     }

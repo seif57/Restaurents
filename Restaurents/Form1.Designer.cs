@@ -30,8 +30,16 @@ namespace Restaurents
         private void InitializeComponent()
         {
             this.lsRegion = new System.Windows.Forms.ListBox();
-            this.listView = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddRestaurent = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RestaurentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hotline = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modify = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lsRegion
@@ -45,43 +53,104 @@ namespace Restaurents
             this.lsRegion.ValueMember = "Id";
             this.lsRegion.SelectedIndexChanged += new System.EventHandler(this.lsRegion_SelectedIndexChanged);
             // 
-            // listView
+            // AddRestaurent
             // 
-            this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(179, 56);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(616, 329);
-            this.listView.TabIndex = 1;
-            this.listView.UseCompatibleStateImageBehavior = false;
+            this.AddRestaurent.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddRestaurent.ForeColor = System.Drawing.Color.DarkBlue;
+            this.AddRestaurent.Location = new System.Drawing.Point(205, 18);
+            this.AddRestaurent.Name = "AddRestaurent";
+            this.AddRestaurent.Size = new System.Drawing.Size(287, 32);
+            this.AddRestaurent.TabIndex = 2;
+            this.AddRestaurent.Text = "Add A Restaurent";
+            this.AddRestaurent.UseVisualStyleBackColor = true;
+            this.AddRestaurent.Click += new System.EventHandler(this.button_AddRestaurent);
             // 
-            // button1
+            // dataGridView1
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DarkBlue;
-            this.button1.Location = new System.Drawing.Point(205, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(287, 32);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Click Me To Add A Restaurent";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button_AddRestaurent);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.RestaurentName,
+            this.RegionId,
+            this.Address,
+            this.Hotline,
+            this.Modify,
+            this.Delete});
+            this.dataGridView1.Location = new System.Drawing.Point(179, 56);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(753, 330);
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "Id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // RestaurentName
+            // 
+            this.RestaurentName.DataPropertyName = "Name";
+            this.RestaurentName.HeaderText = "RestaurentName";
+            this.RestaurentName.Name = "RestaurentName";
+            // 
+            // RegionId
+            // 
+            this.RegionId.DataPropertyName = "RegionId";
+            this.RegionId.HeaderText = "RegionId";
+            this.RegionId.Name = "RegionId";
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            // 
+            // Hotline
+            // 
+            this.Hotline.DataPropertyName = "Hotline";
+            this.Hotline.HeaderText = "Hotline";
+            this.Hotline.Name = "Hotline";
+            // 
+            // Modify
+            // 
+            this.Modify.HeaderText = "Modify";
+            this.Modify.Name = "Modify";
+            this.Modify.Text = "Modify";
+            this.Modify.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(807, 397);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listView);
+            this.ClientSize = new System.Drawing.Size(944, 465);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.AddRestaurent);
             this.Controls.Add(this.lsRegion);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.ListBox lsRegion;
-        private System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddRestaurent;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RestaurentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegionId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hotline;
+        private System.Windows.Forms.DataGridViewButtonColumn Modify;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
 

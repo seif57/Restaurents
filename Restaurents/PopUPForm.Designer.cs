@@ -29,10 +29,10 @@ namespace Restaurents
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ResName = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.InsertButton = new System.Windows.Forms.Button();
             this.ShowAvailableRegions = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Addressbox = new System.Windows.Forms.TextBox();
@@ -40,15 +40,15 @@ namespace Restaurents
             this.Hotlinebox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // NameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "EnterName :";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLabel.Location = new System.Drawing.Point(12, 9);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(114, 20);
+            this.NameLabel.TabIndex = 0;
+            this.NameLabel.Text = "EnterName :";
             // 
             // label2
             // 
@@ -56,9 +56,9 @@ namespace Restaurents
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 20);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "RegionID :";
+            this.label2.Text = "Region :";
             // 
             // ResName
             // 
@@ -67,18 +67,18 @@ namespace Restaurents
             this.ResName.Size = new System.Drawing.Size(157, 20);
             this.ResName.TabIndex = 2;
             // 
-            // button1
+            // InsertButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Coral;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DarkBlue;
-            this.button1.Location = new System.Drawing.Point(414, 204);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 73);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Insert";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.InsertButton.BackColor = System.Drawing.Color.Coral;
+            this.InsertButton.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsertButton.ForeColor = System.Drawing.Color.DarkBlue;
+            this.InsertButton.Location = new System.Drawing.Point(414, 204);
+            this.InsertButton.Name = "InsertButton";
+            this.InsertButton.Size = new System.Drawing.Size(156, 73);
+            this.InsertButton.TabIndex = 4;
+            this.InsertButton.Text = "Insert";
+            this.InsertButton.UseVisualStyleBackColor = false;
+            this.InsertButton.Click += new System.EventHandler(this.InsertButton_Click);
             // 
             // ShowAvailableRegions
             // 
@@ -129,17 +129,17 @@ namespace Restaurents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(623, 300);
             this.Controls.Add(this.Hotlinebox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Addressbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ShowAvailableRegions);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.InsertButton);
             this.Controls.Add(this.ResName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.NameLabel);
             this.Name = "PopUPForm";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -150,10 +150,10 @@ namespace Restaurents
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ResName;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button InsertButton;
         private System.Windows.Forms.ComboBox ShowAvailableRegions;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Addressbox;
