@@ -33,10 +33,10 @@ namespace Restaurents
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.ResName = new System.Windows.Forms.TextBox();
+            this.txtResturantName = new System.Windows.Forms.TextBox();
             this.ShowAvailableRegions = new System.Windows.Forms.ComboBox();
-            this.Addressbox = new System.Windows.Forms.TextBox();
-            this.Hotlinebox = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtHotline = new System.Windows.Forms.TextBox();
             this.ModifyButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -80,12 +80,12 @@ namespace Restaurents
             this.label4.TabIndex = 3;
             this.label4.Text = "Hotline :";
             // 
-            // ResName
+            // txtResturantName
             // 
-            this.ResName.Location = new System.Drawing.Point(161, 31);
-            this.ResName.Name = "ResName";
-            this.ResName.Size = new System.Drawing.Size(288, 20);
-            this.ResName.TabIndex = 4;
+            this.txtResturantName.Location = new System.Drawing.Point(161, 31);
+            this.txtResturantName.Name = "txtResturantName";
+            this.txtResturantName.Size = new System.Drawing.Size(288, 20);
+            this.txtResturantName.TabIndex = 4;
             // 
             // ShowAvailableRegions
             // 
@@ -97,19 +97,19 @@ namespace Restaurents
             this.ShowAvailableRegions.TabIndex = 5;
             this.ShowAvailableRegions.ValueMember = "Id";
             // 
-            // Addressbox
+            // txtAddress
             // 
-            this.Addressbox.Location = new System.Drawing.Point(161, 131);
-            this.Addressbox.Name = "Addressbox";
-            this.Addressbox.Size = new System.Drawing.Size(298, 20);
-            this.Addressbox.TabIndex = 6;
+            this.txtAddress.Location = new System.Drawing.Point(161, 131);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(298, 20);
+            this.txtAddress.TabIndex = 6;
             // 
-            // Hotlinebox
+            // txtHotline
             // 
-            this.Hotlinebox.Location = new System.Drawing.Point(161, 186);
-            this.Hotlinebox.Name = "Hotlinebox";
-            this.Hotlinebox.Size = new System.Drawing.Size(315, 20);
-            this.Hotlinebox.TabIndex = 7;
+            this.txtHotline.Location = new System.Drawing.Point(161, 186);
+            this.txtHotline.Name = "txtHotline";
+            this.txtHotline.Size = new System.Drawing.Size(315, 20);
+            this.txtHotline.TabIndex = 7;
             // 
             // ModifyButton
             // 
@@ -129,16 +129,20 @@ namespace Restaurents
             this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(749, 355);
             this.Controls.Add(this.ModifyButton);
-            this.Controls.Add(this.Hotlinebox);
-            this.Controls.Add(this.Addressbox);
+            this.Controls.Add(this.txtHotline);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.ShowAvailableRegions);
-            this.Controls.Add(this.ResName);
+            this.Controls.Add(this.txtResturantName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ModifyForm";
-            this.Text = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Modify";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModifyForm_FormClosing);
             this.Load += new System.EventHandler(this.ModifyForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,10 +155,10 @@ namespace Restaurents
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox ResName;
+        private System.Windows.Forms.TextBox txtResturantName;
         private System.Windows.Forms.ComboBox ShowAvailableRegions;
-        private System.Windows.Forms.TextBox Addressbox;
-        private System.Windows.Forms.TextBox Hotlinebox;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtHotline;
         private System.Windows.Forms.Button ModifyButton;
     }
 }

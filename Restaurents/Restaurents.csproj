@@ -61,12 +61,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBaseConnection.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Database.cs" />
+    <Compile Include="RestaurentDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="RestaurentDetailsForm.Designer.cs">
+      <DependentUpon>RestaurentDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamObj.cs" />
+    <Compile Include="ParamType.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="DataBaseConnection.cs" />
+    <Compile Include="HomePageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomePageForm.Designer.cs">
+      <DependentUpon>HomePageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ModifyForm.cs">
       <SubType>Form</SubType>
@@ -74,24 +84,28 @@
     <Compile Include="ModifyForm.Designer.cs">
       <DependentUpon>ModifyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PopUPForm.cs">
+    <Compile Include="AddRestaurentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PopUPForm.Designer.cs">
-      <DependentUpon>PopUPForm.cs</DependentUpon>
+    <Compile Include="AddRestaurentForm.Designer.cs">
+      <DependentUpon>AddRestaurentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Region.cs" />
+    <Compile Include="RegionObj.cs" />
     <Compile Include="Resturant.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ResturantObj.cs" />
+    <EmbeddedResource Include="HomePageForm.resx">
+      <DependentUpon>HomePageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurentDetailsForm.resx">
+      <DependentUpon>RestaurentDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyForm.resx">
       <DependentUpon>ModifyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PopUPForm.resx">
-      <DependentUpon>PopUPForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddRestaurentForm.resx">
+      <DependentUpon>AddRestaurentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,7 +1,7 @@
 ﻿
 namespace Restaurents
 {
-    partial class PopUPForm
+    partial class AddRestaurentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@ namespace Restaurents
         {
             this.NameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ResName = new System.Windows.Forms.TextBox();
+            this.txtResturantName = new System.Windows.Forms.TextBox();
             this.InsertButton = new System.Windows.Forms.Button();
             this.ShowAvailableRegions = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Addressbox = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Hotlinebox = new System.Windows.Forms.TextBox();
+            this.txtHotline = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // NameLabel
@@ -60,12 +60,12 @@ namespace Restaurents
             this.label2.TabIndex = 1;
             this.label2.Text = "Region :";
             // 
-            // ResName
+            // txtResturantName
             // 
-            this.ResName.Location = new System.Drawing.Point(167, 11);
-            this.ResName.Name = "ResName";
-            this.ResName.Size = new System.Drawing.Size(157, 20);
-            this.ResName.TabIndex = 2;
+            this.txtResturantName.Location = new System.Drawing.Point(167, 11);
+            this.txtResturantName.Name = "txtResturantName";
+            this.txtResturantName.Size = new System.Drawing.Size(157, 20);
+            this.txtResturantName.TabIndex = 2;
             // 
             // InsertButton
             // 
@@ -101,12 +101,12 @@ namespace Restaurents
             this.label3.TabIndex = 6;
             this.label3.Text = "Address :";
             // 
-            // Addressbox
+            // txtAddress
             // 
-            this.Addressbox.Location = new System.Drawing.Point(167, 120);
-            this.Addressbox.Name = "Addressbox";
-            this.Addressbox.Size = new System.Drawing.Size(228, 20);
-            this.Addressbox.TabIndex = 7;
+            this.txtAddress.Location = new System.Drawing.Point(167, 120);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(228, 20);
+            this.txtAddress.TabIndex = 7;
             // 
             // label4
             // 
@@ -118,30 +118,34 @@ namespace Restaurents
             this.label4.TabIndex = 8;
             this.label4.Text = "Hotline :";
             // 
-            // Hotlinebox
+            // txtHotline
             // 
-            this.Hotlinebox.Location = new System.Drawing.Point(167, 175);
-            this.Hotlinebox.Name = "Hotlinebox";
-            this.Hotlinebox.Size = new System.Drawing.Size(106, 20);
-            this.Hotlinebox.TabIndex = 9;
+            this.txtHotline.Location = new System.Drawing.Point(167, 175);
+            this.txtHotline.Name = "txtHotline";
+            this.txtHotline.Size = new System.Drawing.Size(106, 20);
+            this.txtHotline.TabIndex = 9;
             // 
-            // PopUPForm
+            // AddRestaurentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(623, 300);
-            this.Controls.Add(this.Hotlinebox);
+            this.Controls.Add(this.txtHotline);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.Addressbox);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ShowAvailableRegions);
             this.Controls.Add(this.InsertButton);
-            this.Controls.Add(this.ResName);
+            this.Controls.Add(this.txtResturantName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NameLabel);
-            this.Name = "PopUPForm";
-            this.Text = "Form2";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "AddRestaurentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "AddRestaurent";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddRestaurentForm_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,12 +156,12 @@ namespace Restaurents
 
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox ResName;
+        private System.Windows.Forms.TextBox txtResturantName;
         private System.Windows.Forms.Button InsertButton;
         private System.Windows.Forms.ComboBox ShowAvailableRegions;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Addressbox;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Hotlinebox;
+        private System.Windows.Forms.TextBox txtHotline;
     }
 }
