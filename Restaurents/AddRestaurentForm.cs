@@ -56,8 +56,7 @@ namespace Restaurents
 
             _form1.InsertResturants(resturantObj.Name);
 
-            this.Close();
-            this.Dispose();
+           
 
         }
 

@@ -17,7 +17,7 @@ namespace Restaurents
         HomePageForm _form2;
         private Resturant _resturant;
         private Region _region;
-        private int _currentRegionId;
+        private int _currentresturantId;
         public ModifyForm()
         {
           
@@ -30,14 +30,14 @@ namespace Restaurents
         public ModifyForm(int ResturantID, HomePageForm form1) : this() 
         {
             _form2 = form1;
-            _currentRegionId = ResturantID;
+            _currentresturantId = ResturantID;
 
         }
 
         private void ModifyForm_Load(object sender, EventArgs e)
         {
 
-            ResturantObj resturantObj = _resturant.GetById(_currentRegionId);
+            ResturantObj resturantObj = _resturant.GetById(_currentresturantId);
             txtResturantName.Text = resturantObj.Name;
             txtAddress.Text = resturantObj.Address;
             txtHotline.Text = resturantObj.Hotline;
@@ -49,12 +49,12 @@ namespace Restaurents
             List<RegionObj> regionList = _region.DisplayRegions();
             ShowAvailableRegions.DataSource = regionList;
 
-            return _currentRegionId = (int)ShowAvailableRegions.SelectedValue;
+            return _currentresturantId = (int)ShowAvailableRegions.SelectedValue;
         }
 
         private void ModifyButton_Click(object sender, EventArgs e)
         {
-            ResturantObj resturantObj = _resturant.GetById(_currentRegionId); ;
+            ResturantObj resturantObj = _resturant.GetById(_currentresturantId); ;
             resturantObj.Name = txtResturantName.Text;
             resturantObj.RegionId = (int)ShowAvailableRegions.SelectedValue; ;
             resturantObj.Address = txtAddress.Text;
@@ -62,8 +62,7 @@ namespace Restaurents
 
             _resturant.Update(resturantObj);
             _form2.UpdateResturants(txtResturantName.Text);
-                this.Close();
-                this.Dispose();
+
 
             
         }
