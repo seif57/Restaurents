@@ -17,6 +17,7 @@ namespace Restaurents
         private Resturant _resturant;
         private int _restaurentId;
         private string _regionName;
+        private MenuItem _menuitem;
 
 
         public RestaurentDetailsForm()
@@ -30,6 +31,7 @@ namespace Restaurents
 
             _restaurentId = ResturantID;
             _regionName = RegionName;
+            _menuitem = new MenuItem();
 
         }
 
@@ -40,6 +42,9 @@ namespace Restaurents
             lblRegionName.Text = _regionName;
             lblAddressinfo.Text = resturantObj.Address;
             lblHotlineinfo.Text = resturantObj.Hotline;
+            List<ItemObj> itemObjsList = _menuitem.GetMenuById(_restaurentId);
+            dataGridMenu.AutoGenerateColumns = false;
+            dataGridMenu.DataSource = itemObjsList;
 
         }
 
@@ -55,5 +60,7 @@ namespace Restaurents
                 e.Cancel = true;
             }
         }
+
+        
     }
 }

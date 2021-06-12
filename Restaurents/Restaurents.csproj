@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuItem.cs" />
+    <Compile Include="ItemObj.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="RestaurentDetailsForm.cs">
       <SubType>Form</SubType>

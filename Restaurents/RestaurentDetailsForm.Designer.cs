@@ -29,6 +29,7 @@ namespace Restaurents
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblRestaurent = new System.Windows.Forms.Label();
             this.lblRegion = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
@@ -37,13 +38,21 @@ namespace Restaurents
             this.lblRegionName = new System.Windows.Forms.Label();
             this.lblAddressinfo = new System.Windows.Forms.Label();
             this.lblHotlineinfo = new System.Windows.Forms.Label();
+            this.dataGridMenu = new System.Windows.Forms.DataGridView();
+            this.lblMenu = new System.Windows.Forms.Label();
+            this.RestaurentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRestaurent
             // 
             this.lblRestaurent.AutoSize = true;
             this.lblRestaurent.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestaurent.Location = new System.Drawing.Point(30, 9);
+            this.lblRestaurent.Location = new System.Drawing.Point(12, 9);
             this.lblRestaurent.Name = "lblRestaurent";
             this.lblRestaurent.Size = new System.Drawing.Size(68, 22);
             this.lblRestaurent.TabIndex = 4;
@@ -53,7 +62,7 @@ namespace Restaurents
             // 
             this.lblRegion.AutoSize = true;
             this.lblRegion.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblRegion.Location = new System.Drawing.Point(30, 76);
+            this.lblRegion.Location = new System.Drawing.Point(2, 52);
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(78, 22);
             this.lblRegion.TabIndex = 5;
@@ -63,7 +72,7 @@ namespace Restaurents
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblAddress.Location = new System.Drawing.Point(30, 144);
+            this.lblAddress.Location = new System.Drawing.Point(2, 97);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(86, 22);
             this.lblAddress.TabIndex = 6;
@@ -73,7 +82,7 @@ namespace Restaurents
             // 
             this.lblHotline.AutoSize = true;
             this.lblHotline.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblHotline.Location = new System.Drawing.Point(41, 207);
+            this.lblHotline.Location = new System.Drawing.Point(9, 134);
             this.lblHotline.Name = "lblHotline";
             this.lblHotline.Size = new System.Drawing.Size(79, 22);
             this.lblHotline.TabIndex = 7;
@@ -82,8 +91,8 @@ namespace Restaurents
             // lblResturantName
             // 
             this.lblResturantName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResturantName.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblResturantName.Location = new System.Drawing.Point(148, 9);
+            this.lblResturantName.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblResturantName.Location = new System.Drawing.Point(86, 9);
             this.lblResturantName.Name = "lblResturantName";
             this.lblResturantName.Size = new System.Drawing.Size(263, 22);
             this.lblResturantName.TabIndex = 8;
@@ -91,8 +100,8 @@ namespace Restaurents
             // lblRegionName
             // 
             this.lblRegionName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblRegionName.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblRegionName.Location = new System.Drawing.Point(148, 76);
+            this.lblRegionName.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblRegionName.Location = new System.Drawing.Point(86, 52);
             this.lblRegionName.Name = "lblRegionName";
             this.lblRegionName.Size = new System.Drawing.Size(263, 22);
             this.lblRegionName.TabIndex = 9;
@@ -100,8 +109,8 @@ namespace Restaurents
             // lblAddressinfo
             // 
             this.lblAddressinfo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblAddressinfo.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblAddressinfo.Location = new System.Drawing.Point(134, 144);
+            this.lblAddressinfo.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblAddressinfo.Location = new System.Drawing.Point(105, 97);
             this.lblAddressinfo.Name = "lblAddressinfo";
             this.lblAddressinfo.Size = new System.Drawing.Size(263, 22);
             this.lblAddressinfo.TabIndex = 10;
@@ -109,18 +118,100 @@ namespace Restaurents
             // lblHotlineinfo
             // 
             this.lblHotlineinfo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblHotlineinfo.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblHotlineinfo.Location = new System.Drawing.Point(134, 207);
+            this.lblHotlineinfo.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblHotlineinfo.Location = new System.Drawing.Point(123, 134);
             this.lblHotlineinfo.Name = "lblHotlineinfo";
             this.lblHotlineinfo.Size = new System.Drawing.Size(263, 22);
             this.lblHotlineinfo.TabIndex = 11;
+            // 
+            // dataGridMenu
+            // 
+            this.dataGridMenu.AllowUserToAddRows = false;
+            this.dataGridMenu.AllowUserToDeleteRows = false;
+            this.dataGridMenu.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridMenu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RestaurentId,
+            this.ItemId,
+            this.ItemName,
+            this.ItemPrice,
+            this.ItemInfo});
+            this.dataGridMenu.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridMenu.Location = new System.Drawing.Point(6, 191);
+            this.dataGridMenu.MultiSelect = false;
+            this.dataGridMenu.Name = "dataGridMenu";
+            this.dataGridMenu.ReadOnly = true;
+            this.dataGridMenu.Size = new System.Drawing.Size(938, 254);
+            this.dataGridMenu.TabIndex = 12;
+            // 
+            // lblMenu
+            // 
+            this.lblMenu.AutoSize = true;
+            this.lblMenu.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblMenu.Location = new System.Drawing.Point(852, 161);
+            this.lblMenu.Name = "lblMenu";
+            this.lblMenu.Size = new System.Drawing.Size(73, 27);
+            this.lblMenu.TabIndex = 13;
+            this.lblMenu.Text = "Menu ";
+            // 
+            // RestaurentId
+            // 
+            this.RestaurentId.DataPropertyName = "RestaurentId";
+            this.RestaurentId.HeaderText = "RestaurentId";
+            this.RestaurentId.Name = "RestaurentId";
+            this.RestaurentId.ReadOnly = true;
+            this.RestaurentId.Visible = false;
+            this.RestaurentId.Width = 93;
+            // 
+            // ItemId
+            // 
+            this.ItemId.DataPropertyName = "ID";
+            this.ItemId.HeaderText = "ItemId";
+            this.ItemId.Name = "ItemId";
+            this.ItemId.ReadOnly = true;
+            this.ItemId.Visible = false;
+            this.ItemId.Width = 61;
+            // 
+            // ItemName
+            // 
+            this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ItemName.DataPropertyName = "Name";
+            this.ItemName.HeaderText = "Name";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            this.ItemName.Width = 60;
+            // 
+            // ItemPrice
+            // 
+            this.ItemPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ItemPrice.DataPropertyName = "Price";
+            this.ItemPrice.HeaderText = "Price";
+            this.ItemPrice.Name = "ItemPrice";
+            this.ItemPrice.ReadOnly = true;
+            this.ItemPrice.Width = 56;
+            // 
+            // ItemInfo
+            // 
+            this.ItemInfo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemInfo.DataPropertyName = "Info";
+            this.ItemInfo.HeaderText = "Info";
+            this.ItemInfo.Name = "ItemInfo";
+            this.ItemInfo.ReadOnly = true;
             // 
             // RestaurentDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(513, 322);
+            this.ClientSize = new System.Drawing.Size(956, 447);
+            this.Controls.Add(this.lblMenu);
+            this.Controls.Add(this.dataGridMenu);
             this.Controls.Add(this.lblHotlineinfo);
             this.Controls.Add(this.lblAddressinfo);
             this.Controls.Add(this.lblRegionName);
@@ -136,6 +227,7 @@ namespace Restaurents
             this.Text = "Restaurent";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RestaurentDetailsForm_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +242,12 @@ namespace Restaurents
         private System.Windows.Forms.Label lblRegionName;
         private System.Windows.Forms.Label lblAddressinfo;
         private System.Windows.Forms.Label lblHotlineinfo;
+        private System.Windows.Forms.DataGridView dataGridMenu;
+        private System.Windows.Forms.Label lblMenu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RestaurentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemInfo;
     }
 }

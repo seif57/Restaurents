@@ -42,7 +42,7 @@ namespace Restaurents
            
             return _currentRegionId=(int)ShowAvailableRegions.SelectedValue;
         }
-
+        
 
         private void InsertButton_Click(object sender, EventArgs e)
         {
@@ -51,13 +51,16 @@ namespace Restaurents
             resturantObj.RegionId = _currentRegionId;
             resturantObj.Address = txtAddress.Text;
             resturantObj.Hotline = txtHotline.Text;
+            
+
+
 
             _resturant.Add(resturantObj);
 
             _form1.InsertResturants(resturantObj.Name);
-
-           
-
+            
+                
+            
         }
 
         private void AddRestaurentForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -72,5 +75,7 @@ namespace Restaurents
                 e.Cancel = true;
             }
         }
+
+        
     }
 }

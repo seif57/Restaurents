@@ -29,6 +29,7 @@ namespace Restaurents
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.NameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtResturantName = new System.Windows.Forms.TextBox();
@@ -38,6 +39,12 @@ namespace Restaurents
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtHotline = new System.Windows.Forms.TextBox();
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorAddress = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorHotline = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAddress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorHotline)).BeginInit();
             this.SuspendLayout();
             // 
             // NameLabel
@@ -46,9 +53,9 @@ namespace Restaurents
             this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameLabel.Location = new System.Drawing.Point(12, 9);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(114, 20);
+            this.NameLabel.Size = new System.Drawing.Size(120, 20);
             this.NameLabel.TabIndex = 0;
-            this.NameLabel.Text = "EnterName :";
+            this.NameLabel.Text = "Enter Name :";
             // 
             // label2
             // 
@@ -125,6 +132,19 @@ namespace Restaurents
             this.txtHotline.Size = new System.Drawing.Size(106, 20);
             this.txtHotline.TabIndex = 9;
             // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            this.errorName.RightToLeftChanged += new System.EventHandler(this.InsertButton_Click);
+            // 
+            // errorAddress
+            // 
+            this.errorAddress.ContainerControl = this;
+            // 
+            // errorHotline
+            // 
+            this.errorHotline.ContainerControl = this;
+            // 
             // AddRestaurentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,6 +167,9 @@ namespace Restaurents
             this.Text = "AddRestaurent";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddRestaurentForm_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAddress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorHotline)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +186,8 @@ namespace Restaurents
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtHotline;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorAddress;
+        private System.Windows.Forms.ErrorProvider errorHotline;
     }
 }
