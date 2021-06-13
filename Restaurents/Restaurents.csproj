@@ -80,11 +80,11 @@
     <Compile Include="HomePageForm.Designer.cs">
       <DependentUpon>HomePageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModifyForm.cs">
+    <Compile Include="ModeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifyForm.Designer.cs">
-      <DependentUpon>ModifyForm.cs</DependentUpon>
+    <Compile Include="ModeForm.Designer.cs">
+      <DependentUpon>ModeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,8 +97,8 @@
     <EmbeddedResource Include="RestaurentDetailsForm.resx">
       <DependentUpon>RestaurentDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyForm.resx">
-      <DependentUpon>ModifyForm.cs</DependentUpon>
+    <EmbeddedResource Include="ModeForm.resx">
+      <DependentUpon>ModeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

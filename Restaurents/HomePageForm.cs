@@ -59,7 +59,7 @@ namespace Restaurents
             {
                 if (dataGridView1.Columns[e.ColumnIndex].Name == "Modify")
                 {
-                    ModifyForm modifyForm = new ModifyForm(int.Parse(RestaurentID), this);
+                    ModeForm modifyForm = new ModeForm(int.Parse(RestaurentID), this);
                     modifyForm.ShowDialog();
                 }
 
@@ -98,7 +98,7 @@ namespace Restaurents
         }
         private void button_AddRestaurent(object sender, EventArgs e)
         {
-            var popUP = new ModifyForm(this);
+            var popUP = new ModeForm(this);
             popUP.ShowDialog();
 
         }

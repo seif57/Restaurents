@@ -1,7 +1,7 @@
 ﻿
 namespace Restaurents
 {
-    partial class ModifyForm
+    partial class ModeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,9 +49,9 @@ namespace Restaurents
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(16, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 20);
+            this.label1.Size = new System.Drawing.Size(69, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "EnterName :";
+            this.label1.Text = "Name :";
             // 
             // label2
             // 
@@ -129,7 +129,7 @@ namespace Restaurents
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ModifyForm
+            // ModeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,7 +146,7 @@ namespace Restaurents
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ModifyForm";
+            this.Name = "ModeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Modify";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModifyForm_FormClosing);

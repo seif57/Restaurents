@@ -11,14 +11,14 @@ using System.Data.SqlClient;
 
 namespace Restaurents
 {
-    public partial class ModifyForm : Form
+    public partial class ModeForm : Form
     {
 
         HomePageForm _form2;
         private Resturant _resturant;
         private Region _region;
         private int _currentresturantId;
-        public ModifyForm()
+        public ModeForm()
         {
 
             InitializeComponent();
@@ -27,12 +27,12 @@ namespace Restaurents
             BindBox();
 
         }
-        public ModifyForm(HomePageForm form1) : this()
+        public ModeForm(HomePageForm form1) : this()
         {
             _form2 = form1;
             _currentresturantId = 0;
         }
-        public ModifyForm(int ResturantID, HomePageForm form1) : this()
+        public ModeForm(int ResturantID, HomePageForm form1) : this()
         {
             _form2 = form1;
             _currentresturantId = ResturantID;
