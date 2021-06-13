@@ -98,7 +98,7 @@ namespace Restaurents
         }
         private void button_AddRestaurent(object sender, EventArgs e)
         {
-            AddRestaurentForm popUP = new AddRestaurentForm(this);
+            var popUP = new ModifyForm(this);
             popUP.ShowDialog();
 
         }

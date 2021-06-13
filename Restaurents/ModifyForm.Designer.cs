@@ -29,6 +29,7 @@ namespace Restaurents
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,7 +38,9 @@ namespace Restaurents
             this.ShowAvailableRegions = new System.Windows.Forms.ComboBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtHotline = new System.Windows.Forms.TextBox();
-            this.ModifyButton = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,16 +114,20 @@ namespace Restaurents
             this.txtHotline.Size = new System.Drawing.Size(315, 20);
             this.txtHotline.TabIndex = 7;
             // 
-            // ModifyButton
+            // btnModify
             // 
-            this.ModifyButton.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
-            this.ModifyButton.Location = new System.Drawing.Point(488, 258);
-            this.ModifyButton.Name = "ModifyButton";
-            this.ModifyButton.Size = new System.Drawing.Size(190, 69);
-            this.ModifyButton.TabIndex = 8;
-            this.ModifyButton.Text = "Modify";
-            this.ModifyButton.UseVisualStyleBackColor = true;
-            this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
+            this.btnModify.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.btnModify.Location = new System.Drawing.Point(488, 258);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(190, 69);
+            this.btnModify.TabIndex = 8;
+            this.btnModify.Text = "Modify";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.ModifyButton_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // ModifyForm
             // 
@@ -128,7 +135,7 @@ namespace Restaurents
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(749, 355);
-            this.Controls.Add(this.ModifyButton);
+            this.Controls.Add(this.btnModify);
             this.Controls.Add(this.txtHotline);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.ShowAvailableRegions);
@@ -144,6 +151,7 @@ namespace Restaurents
             this.Text = "Modify";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModifyForm_FormClosing);
             this.Load += new System.EventHandler(this.ModifyForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,6 +167,7 @@ namespace Restaurents
         private System.Windows.Forms.ComboBox ShowAvailableRegions;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtHotline;
-        private System.Windows.Forms.Button ModifyButton;
+        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

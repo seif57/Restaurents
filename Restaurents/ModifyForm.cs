@@ -13,21 +13,26 @@ namespace Restaurents
 {
     public partial class ModifyForm : Form
     {
-       
+
         HomePageForm _form2;
         private Resturant _resturant;
         private Region _region;
         private int _currentresturantId;
         public ModifyForm()
         {
-          
+
             InitializeComponent();
             _resturant = new Resturant();
             _region = new Region();
-             BindBox();
+            BindBox();
 
         }
-        public ModifyForm(int ResturantID, HomePageForm form1) : this() 
+        public ModifyForm(HomePageForm form1) : this()
+        {
+            _form2 = form1;
+            _currentresturantId = 0;
+        }
+        public ModifyForm(int ResturantID, HomePageForm form1) : this()
         {
             _form2 = form1;
             _currentresturantId = ResturantID;
@@ -37,11 +42,22 @@ namespace Restaurents
         private void ModifyForm_Load(object sender, EventArgs e)
         {
 
-            ResturantObj resturantObj = _resturant.GetById(_currentresturantId);
-            txtResturantName.Text = resturantObj.Name;
-            txtAddress.Text = resturantObj.Address;
-            txtHotline.Text = resturantObj.Hotline;
+            if (_currentresturantId > 0)
+            {
+                ResturantObj resturantObj = _resturant.GetById(_currentresturantId);
+                txtResturantName.Text = resturantObj.Name;
+                txtAddress.Text = resturantObj.Address;
+                txtHotline.Text = resturantObj.Hotline;
 
+                btnModify.Text = "Update";
+                this.Text = "Update [" + txtResturantName.Text + "]";
+            }
+            else
+            {
+                btnModify.Text = "Add";
+                this.Text = "New Resturant";
+
+            }
         }
         public int BindBox()
         {
@@ -52,19 +68,60 @@ namespace Restaurents
             return _currentresturantId = (int)ShowAvailableRegions.SelectedValue;
         }
 
+        public bool ValidateFields()
+        {
+
+            var controls = new[] { txtResturantName, txtAddress, txtHotline };
+
+            Boolean isValid = true;
+            foreach (var control in controls.Where(e => String.IsNullOrWhiteSpace(e.Text)))
+            {
+                errorProvider1.SetError(control, "Please fill the required field");
+                isValid = false;
+            }
+
+            return isValid;
+        }
         private void ModifyButton_Click(object sender, EventArgs e)
         {
-            ResturantObj resturantObj = _resturant.GetById(_currentresturantId); ;
-            resturantObj.Name = txtResturantName.Text;
-            resturantObj.RegionId = (int)ShowAvailableRegions.SelectedValue; ;
-            resturantObj.Address = txtAddress.Text;
-            resturantObj.Hotline = txtHotline.Text;
+            ResturantObj resturantObj = _resturant.GetById(_currentresturantId);
+            bool validateresult = ValidateFields();
 
-            _resturant.Update(resturantObj);
-            _form2.UpdateResturants(txtResturantName.Text);
+            if (btnModify.Text=="Update")
+            {
+                
+                resturantObj.Name = txtResturantName.Text;
+                resturantObj.RegionId = (int)ShowAvailableRegions.SelectedValue;
+                resturantObj.Address = txtAddress.Text;
+                resturantObj.Hotline = txtHotline.Text;
 
+                _resturant.Update(resturantObj);
+                _form2.UpdateResturants(txtResturantName.Text);
+            }
 
+            else
+            {
+                resturantObj.Name = txtResturantName.Text;
+                resturantObj.RegionId = (int)ShowAvailableRegions.SelectedValue;
+                resturantObj.Address = txtAddress.Text;
+                resturantObj.Hotline = txtHotline.Text;
+                
+
+                if (validateresult==false )
+                {
+                    MessageBox.Show("Please Enter Missing Fields");
+                }
+                else
+                {
+                    _resturant.Add(resturantObj);
+
+                    _form2.InsertResturants(resturantObj.Name);
+                } 
+            } 
             
+
+
+
         }
 
         private void ModifyForm_FormClosing(object sender, FormClosingEventArgs e)
