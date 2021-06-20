@@ -39,12 +39,15 @@ namespace Restaurents
             this.lblAddressinfo = new System.Windows.Forms.Label();
             this.lblHotlineinfo = new System.Windows.Forms.Label();
             this.dataGridMenu = new System.Windows.Forms.DataGridView();
-            this.lblMenu = new System.Windows.Forms.Label();
-            this.RestaurentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RestaurentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modify = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lblMenu = new System.Windows.Forms.Label();
+            this.btnAddItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,11 +139,13 @@ namespace Restaurents
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RestaurentId,
             this.ItemId,
             this.ItemName,
+            this.RestaurentId,
             this.ItemPrice,
-            this.ItemInfo});
+            this.ItemInfo,
+            this.Modify,
+            this.Delete});
             this.dataGridMenu.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridMenu.Location = new System.Drawing.Point(6, 191);
             this.dataGridMenu.MultiSelect = false;
@@ -148,26 +153,7 @@ namespace Restaurents
             this.dataGridMenu.ReadOnly = true;
             this.dataGridMenu.Size = new System.Drawing.Size(938, 254);
             this.dataGridMenu.TabIndex = 12;
-            // 
-            // lblMenu
-            // 
-            this.lblMenu.AutoSize = true;
-            this.lblMenu.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenu.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblMenu.Location = new System.Drawing.Point(852, 161);
-            this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(73, 27);
-            this.lblMenu.TabIndex = 13;
-            this.lblMenu.Text = "Menu ";
-            // 
-            // RestaurentId
-            // 
-            this.RestaurentId.DataPropertyName = "RestaurentId";
-            this.RestaurentId.HeaderText = "RestaurentId";
-            this.RestaurentId.Name = "RestaurentId";
-            this.RestaurentId.ReadOnly = true;
-            this.RestaurentId.Visible = false;
-            this.RestaurentId.Width = 93;
+            this.dataGridMenu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridMenu_CellContentClick);
             // 
             // ItemId
             // 
@@ -182,10 +168,19 @@ namespace Restaurents
             // 
             this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.ItemName.DataPropertyName = "Name";
-            this.ItemName.HeaderText = "Name";
+            this.ItemName.HeaderText = "ItemName";
             this.ItemName.Name = "ItemName";
             this.ItemName.ReadOnly = true;
-            this.ItemName.Width = 60;
+            this.ItemName.Width = 80;
+            // 
+            // RestaurentId
+            // 
+            this.RestaurentId.DataPropertyName = "RestaurentId";
+            this.RestaurentId.HeaderText = "RestaurentId";
+            this.RestaurentId.Name = "RestaurentId";
+            this.RestaurentId.ReadOnly = true;
+            this.RestaurentId.Visible = false;
+            this.RestaurentId.Width = 93;
             // 
             // ItemPrice
             // 
@@ -204,12 +199,50 @@ namespace Restaurents
             this.ItemInfo.Name = "ItemInfo";
             this.ItemInfo.ReadOnly = true;
             // 
+            // Modify
+            // 
+            this.Modify.HeaderText = "Modify";
+            this.Modify.Name = "Modify";
+            this.Modify.ReadOnly = true;
+            this.Modify.Text = "Modify";
+            this.Modify.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
+            // lblMenu
+            // 
+            this.lblMenu.AutoSize = true;
+            this.lblMenu.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblMenu.Location = new System.Drawing.Point(852, 161);
+            this.lblMenu.Name = "lblMenu";
+            this.lblMenu.Size = new System.Drawing.Size(73, 27);
+            this.lblMenu.TabIndex = 13;
+            this.lblMenu.Text = "Menu ";
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.Location = new System.Drawing.Point(37, 162);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(72, 25);
+            this.btnAddItem.TabIndex = 14;
+            this.btnAddItem.Text = "New+";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
             // RestaurentDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(956, 447);
+            this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.lblMenu);
             this.Controls.Add(this.dataGridMenu);
             this.Controls.Add(this.lblHotlineinfo);
@@ -244,10 +277,13 @@ namespace Restaurents
         private System.Windows.Forms.Label lblHotlineinfo;
         private System.Windows.Forms.DataGridView dataGridMenu;
         private System.Windows.Forms.Label lblMenu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RestaurentId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RestaurentId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemInfo;
+        private System.Windows.Forms.DataGridViewButtonColumn Modify;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Button btnAddItem;
     }
 }

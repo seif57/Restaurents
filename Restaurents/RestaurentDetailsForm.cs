@@ -60,7 +60,56 @@ namespace Restaurents
                 e.Cancel = true;
             }
         }
+        public void UpdateMenu(string newIemName)
+        {
+            dataGridMenu.DataSource = _menuitem.GetMenuById(_restaurentId);
+            MessageBox.Show(newIemName + " Update Successfully");
+        }
+        public void InsertResturants(string newIemName)
+        {
+            dataGridMenu.DataSource = _menuitem.GetMenuById(_restaurentId);
+            MessageBox.Show(newIemName + " InsertSsuccessful");
+        }
+        private void dataGridMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string ItemId = dataGridMenu.Rows[e.RowIndex].Cells[0].Value.ToString();
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+               e.RowIndex >= 0)
 
-        
+            {
+                if (dataGridMenu.Columns[e.ColumnIndex].Name == "Modify")
+                {
+                    ModifyMenu modifyMenu = new ModifyMenu(int.Parse(ItemId), this);
+                    modifyMenu.ShowDialog();
+                }
+
+
+                else if (dataGridMenu.Columns[e.ColumnIndex].Name == "Delete")
+                {
+                    var ItemName = senderGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    DialogResult dialogResult = MessageBox.Show("Are you sure u want to delete [" + ItemName + "]", "Confirm", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        int id = int.Parse(ItemId);
+                        _resturant.Delete(id);
+                        dataGridMenu.DataSource = _menuitem.GetMenuById(_restaurentId);
+                    }
+                }
+
+
+
+
+
+
+            }
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+
+            ModifyMenu modifyMenu = new ModifyMenu();
+            modifyMenu.ShowDialog();
+        }
     }
 }

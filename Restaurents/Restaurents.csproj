@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModifyMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyMenu.Designer.cs">
+      <DependentUpon>ModifyMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuItem.cs" />
     <Compile Include="ItemObj.cs" />
     <Compile Include="Database.cs" />
@@ -93,6 +99,9 @@
     <Compile Include="ResturantObj.cs" />
     <EmbeddedResource Include="HomePageForm.resx">
       <DependentUpon>HomePageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyMenu.resx">
+      <DependentUpon>ModifyMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RestaurentDetailsForm.resx">
       <DependentUpon>RestaurentDetailsForm.cs</DependentUpon>
